@@ -9,7 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.arcandecoder.movies.components.ButtonText
 import com.arcandecoder.movies.ui.theme.MoviesTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,40 +33,46 @@ class MainActivity : ComponentActivity() {
         setContent {
             MoviesTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(innerPadding)
+
+                    ) {
+                        ButtonText("Texto de prueba jeje")
+                        // Puedes agregar otros elementos como Greeting aquí
+                        // Greeting(name = "Android")
+                    }
                 }
             }
         }
     }
+
+
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun MediaItem(){
-    Column {
-        Box(modifier = Modifier
-            .height(200.dp)
-            .fillMaxWidth()
-            .background(color = Color.Red)){
+    /*@Preview(showBackground = true)
+    @Composable
+    fun MediaItem() {
+        Column {
+            Box(
+                modifier = Modifier
+                    .height(200.dp)
+                    .fillMaxWidth()
+                    .background(color = Color.Red)
+            ) {
+                ButtonText()
+            }
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(color = Color.LightGray),
+                text = "Title"
+            )
         }
-        Text(modifier = Modifier
-            .fillMaxWidth()
-            .background(color = Color.LightGray),
-            text = "Title")
     }
-}
+}*/
 
 
 /*@Preview(showBackground = true,
