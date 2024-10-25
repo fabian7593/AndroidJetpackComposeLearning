@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "com.arcandecoder.calculatetip"
+    namespace = "com.arcandecoder.affirmationapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.arcandecoder.calculatetip"
-        minSdk = 24
+        applicationId = "com.arcandecoder.affirmationapp"
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -47,17 +47,6 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-    testOptions {
-        unitTests.isIncludeAndroidResources = true
-    }
-
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
-
-    systemProperty("robolectric.dependency.repo.url", "https://repo1.maven.org/maven2")
-    systemProperty("robolectric.dependency.repo.id", "central")
 }
 
 dependencies {
@@ -70,13 +59,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation("androidx.compose.material:material-icons-extended:1.0.0")
-    testImplementation("org.robolectric:robolectric:4.9")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
-
-
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -84,5 +66,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
 }

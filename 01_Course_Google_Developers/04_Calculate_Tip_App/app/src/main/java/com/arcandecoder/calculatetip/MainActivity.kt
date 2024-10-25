@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -64,7 +65,8 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-private fun calculateTip(amount: Double,
+@VisibleForTesting
+internal fun calculateTip(amount: Double,
                          tipPercent:Double = 15.0,
                          roundUp:Boolean
                          ):String{
@@ -106,7 +108,7 @@ fun TipTimeLayout(modifier : Modifier = Modifier) {
 
        EditNumberFields(
                         value = amountInput.value,
-                        label = R.string.calculate_input,
+                        label = R.string.bill_amount,
                         leadingIcon = Icons.Filled.AttachMoney,
                         onValueChange = {  amountInput.value = it },
                         imeAction = ImeAction.Next,
@@ -114,7 +116,7 @@ fun TipTimeLayout(modifier : Modifier = Modifier) {
 
        EditNumberFields(
                         value = tipInput.value,
-                        label = R.string.round_up_tip,
+                        label = R.string.tip_percentage,
                         leadingIcon = Icons.Filled.Percent,
                         onValueChange = {  tipInput.value = it },
                         modifier =  Modifier.padding(bottom = 16.dp))
